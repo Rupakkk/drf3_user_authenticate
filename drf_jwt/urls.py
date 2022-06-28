@@ -28,4 +28,6 @@ urlpatterns = [
     path('get-token/', TokenObtainPairView.as_view(), name = 'token_obtain_pair'),#for access token and refresh token 
     path('refresh-token/', TokenRefreshView.as_view(), name =' token_refresh'),
     path('verify-token/', TokenVerifyView.as_view(), name =' token_verify'),
+    path('', include('rest_framework.urls')),
+   
 ]
