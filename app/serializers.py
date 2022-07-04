@@ -1,7 +1,10 @@
 from rest_framework import serializers
-from .models import Student
+from django.contrib.auth.models import User
 
-class StudentSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Student
-        fields = '__all__'
+        model = User
+        fields = ['username','email','first_name','last_name','password']
+        extra_kwargs = {
+            'password' : {'write_only' : True}
+        }
